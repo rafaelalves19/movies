@@ -13,12 +13,12 @@ export default function Container() {
   return (
     <div className="container">
       <Header />
+      <Hero />
       <Routes>
         <Route path="movies" element={<Movies />} />
         <Route path="series" element={<Series />} />
         <Route path="about" element={<About />} />
       </Routes>
-      <Hero />
     </div>
   );
 }
