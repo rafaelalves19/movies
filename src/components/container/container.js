@@ -1,7 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 
-import Hero from "../hero/hero";
-
+import Home from "../../pages/home/home";
 import Header from "../header/header";
 import About from "../../pages/about/about";
 import Movies from "../../pages/movies/movies";
@@ -13,8 +12,8 @@ export default function Container() {
   return (
     <div className="container">
       <Header />
-      <Hero />
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route path="movies" element={<Movies />} />
         <Route path="series" element={<Series />} />
         <Route path="about" element={<About />} />
