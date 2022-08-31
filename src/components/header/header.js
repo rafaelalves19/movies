@@ -1,16 +1,13 @@
-import React from "react";
+import React from 'react'
 
-
-import Logo from "./logo/logo";
-import Nav from "./nav/nav";
-
-import "./header.css";
+import Logo from './logo/logo'
+import Nav from './nav/nav'
 
 export default function Header() {
-  return (
-    <header>
-      <Logo />
-      <Nav />
-    </header>
-  );
+	return (
+		<header>
+			<Logo />
+			<Nav />
+		</header>
+	)
 }
