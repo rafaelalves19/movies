@@ -1,7 +1,8 @@
-@import url(./_card.scss);
-@import url(./_header.scss);
-@import url(./_hero.scss);
-@import url(./_nav.scss);
+@import './_utils.scss';
+@import './_card.scss';
+@import './_header.scss';
+@import './_hero.scss';
+@import './_nav.scss';
 
 * {
 	margin: 0;
@@ -23,6 +24,26 @@ a {
 
 button {
 	cursor: pointer;
+}
+
+.container {
+	padding-left: 10px;
+	padding-right: 10px;
+
+	@include min-991 {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+}
+
+.grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 10px;
+	@include min-640 {
+		grid-template-columns: repeat(12, 1fr);
+		gap: 20px;
+	}
 }
 
 :root {
