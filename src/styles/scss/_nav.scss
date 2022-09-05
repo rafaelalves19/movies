@@ -1,15 +1,50 @@
 nav {
-  text-align: center;
-  height: 10vh;
   color: var(--text-color);
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 500;
-  display: grid;
-  align-content: center;
+  display: flex;
+  align-items: center;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    padding-top: 120px;
+    box-shadow: inset 0 0 2000px rgba(255, 255, 255, 0.5);
+    width: 100%;
+    transform: translateX(150%);
+    margin-right: -40px;
+    padding-right: 50px;
+    transition: transform 0.5s ease-in-out;
+    text-align: center;
+  }
+
+  .nav__burgerContainer {
+    @include min-1024 {
+      display: none;
+    }
+  }
+
+  @include min-1024 {
+    ul {
+      width: 400px;
+      list-style-type: none;
+      display: flex;
+      flex-direction: inherit;
+      box-shadow: none;
+      transform: translateX(0);
+      margin-right: 0;
+      padding-right: 0;
+      padding-top: 0px;
+      justify-content: space-around;
+      transition: none;
+      li {
+      }
+    }
+  }
+
+  @include min-1440 {
+    font-size: 24px;
+  }
 }
 
-ul {
-  list-style-type: none;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-}
+

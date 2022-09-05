@@ -1,76 +1,80 @@
 .card__moviesSlider {
-	height: 100vh;
-	display: flex;
-	align-items: center;
-}
-
-.card__background {
-	width: 100%;
-	position: absolute;
-	img {
-		height: 100vh;
-		width: 100%;
-		filter: grayscale(50%) brightness(0.4) opacity(1);
-	}
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  .card__background {
+    width: 100%;
+    position: absolute;
+    img {
+      height: 100vh;
+      width: 100%;
+      filter: grayscale(50%) brightness(0.4) opacity(1);
+    }
+  }
 }
 
 .card__infowrapper {
+  padding-top: 100px;
+  max-width: 991px;
 }
 
 .card__moviePicture {
-	position: relative;
-	grid-column-start: 1;
-	grid-column-end: span 2;
-	@include min-640 {
-		grid-column-start: 1;
-		grid-column-end: span 6;
-	}
-	img {
-		width: 100%;
-	}
+  position: relative;
+  grid-column-start: 1;
+  grid-column-end: span 2;
+  @include min-640 {
+    grid-column-start: 1;
+    grid-column-end: span 6;
+  }
+  img {
+    width: 100%;
+  }
 }
 
 .card__movieImage {
-	filter: none;
-	border-radius: 12px;
-	box-shadow: 6px 6px 16px;
+  border-radius: 12px;
+  box-shadow: 6px 6px 16px;
 }
 
 .card__info {
-	position: relative;
-	grid-column-start: 1;
-	grid-column-end: span 2;
-	@include min-640 {
-		grid-column-start: 7;
-		grid-column-end: span 6;
-	}
+  position: relative;
+  grid-column-start: 1;
+  grid-column-end: span 2;
+  @include min-640 {
+    grid-column-start: 7;
+    grid-column-end: span 6;
+  }
 }
 
 h1 {
-	position: relative;
-	color: var(--text-color);
-	font-size: 46px;
-	padding-bottom: 10px;
+  position: relative;
+  color: var(--text-color);
+  font-size: 46px;
+  padding-bottom: 10px;
 }
 
 .card__genres {
-	padding-bottom: 35px;
-	font-size: 16px;
-	display: flex;
-	justify-content: space-around;
+  list-style-type: none;
+
+  padding-bottom: 35px;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-around;
 }
 
 .card__genres li {
-	background-color: var(--main-color);
-	color: var(--text-color);
-	border-radius: 25px;
-	text-align: center;
-	width: 100px;
-	justify-content: center;
+  background-color: var(--main-color);
+  color: var(--text-color);
+  border-radius: 25px;
+  text-align: center;
+  width: 100px;
+  justify-content: center;
 }
 
 p {
-	padding-top: 25px;
-	font-size: 18px;
-	color: var(--text-color);
+  padding-top: 25px;
+  font-size: 18px;
+  color: var(--text-color);
 }
