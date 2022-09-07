@@ -2,11 +2,12 @@ header {
   width: 100%;
   position: absolute;
   z-index: 2;
+  overflow-x: hidden;
 
-  .header__sideWrappers {
+  .header__wrappers {
     display: flex;
     justify-content: space-between;
-    padding-top: 10px;
     max-width: 1440px;
+    margin: 0 auto;
   }
 }

@@ -1,31 +1,28 @@
 nav {
   color: var(--text-color);
-  font-size: 20px;
   font-weight: 500;
-  display: flex;
-  align-items: center;
+  width: 60%;
+
+  @include min-1024 {
+    width: auto;
+    display: flex;
+    align-items: center;
+  }
 
   ul {
     display: flex;
     flex-direction: column;
     padding-top: 120px;
-    box-shadow: inset 0 0 2000px rgba(255, 255, 255, 0.5);
-    width: 100%;
+    background-color: var(--main-color);
+    height: 100vh;
+    width: auto;
     transform: translateX(150%);
-    margin-right: -40px;
-    padding-right: 50px;
     transition: transform 0.5s ease-in-out;
     text-align: center;
-  }
 
-  .nav__burgerContainer {
+
+
     @include min-1024 {
-      display: none;
-    }
-  }
-
-  @include min-1024 {
-    ul {
       width: 400px;
       list-style-type: none;
       display: flex;
@@ -37,14 +34,25 @@ nav {
       padding-top: 0px;
       justify-content: space-around;
       transition: none;
-      li {
+      height: auto;
+      background-color: inherit;
+    }
+
+    li {
+      font-size: 32px;
+      margin-bottom: 20px;
+      @include min-1024 {
+        font-size: 20px;
+      }
+      @include min-1440 {
+        font-size: 24px;
       }
     }
   }
 
-  @include min-1440 {
-    font-size: 24px;
+  .nav__burgerContainer {
+    @include min-1024 {
+      display: none;
+    }
   }
 }
-
-

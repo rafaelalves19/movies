@@ -1,41 +1,41 @@
 .card__moviesSlider {
-  height: 100vh;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  
+  padding-top: 180px;
+
   .card__background {
     width: 100%;
     position: absolute;
     img {
-      height: 100vh;
-      width: 100%;
       filter: grayscale(50%) brightness(0.4) opacity(1);
+      height: 100%;
     }
   }
-}
 
-.card__infowrapper {
-  padding-top: 100px;
-  max-width: 991px;
-}
+  .card__infowrapper {
+    max-width: 991px;
 
-.card__moviePicture {
-  position: relative;
-  grid-column-start: 1;
-  grid-column-end: span 2;
-  @include min-640 {
-    grid-column-start: 1;
-    grid-column-end: span 6;
+    .card__moviePicture {
+      aspect-ratio: 6;
+      position: relative;
+      grid-column-start: 1;
+      grid-column-end: span 2;
+      @include min-640 {
+        grid-column-start: 1;
+        grid-column-end: span 6;
+      }
+      img {
+        width: 100%;
+      }
+    }
+
+    .card__movieImage {
+      border-radius: 12px;
+      box-shadow: 6px 6px 16px;
+    }
   }
-  img {
-    width: 100%;
-  }
-}
-
-.card__movieImage {
-  border-radius: 12px;
-  box-shadow: 6px 6px 16px;
 }
 
 .card__info {

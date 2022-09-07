@@ -38,9 +38,8 @@ button {
   padding-right: 10px;
   margin: 0 auto;
   max-width: 1440px;
-  overflow-x: hidden;
 
-  @include min-991 {
+  @include min-1024 {
     padding-left: 20px;
     padding-right: 20px;
   }

@@ -55,6 +55,14 @@
   transform: rotate(-45deg);
 }
 
-.burgerIcon input[type="checkbox"]:checked ~ ul {
-  transform: translateX(-150%);
+.menu-open {
+  transform: translateX(0%);
+  position: fixed;
+  width: 60%;
+}
+
+.menu-open-icon {
+  position: fixed;
+  width: 60%;
+  z-index: 1;
 }
