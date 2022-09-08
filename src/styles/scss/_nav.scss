@@ -14,13 +14,12 @@ nav {
     flex-direction: column;
     padding-top: 120px;
     background-color: var(--main-color);
+    opacity: 0.95;
     height: 100vh;
     width: auto;
     transform: translateX(150%);
     transition: transform 0.5s ease-in-out;
     text-align: center;
-
-
 
     @include min-1024 {
       width: 400px;
@@ -41,11 +40,40 @@ nav {
     li {
       font-size: 32px;
       margin-bottom: 20px;
+
       @include min-1024 {
         font-size: 20px;
       }
       @include min-1440 {
         font-size: 24px;
+      }
+
+      a {
+        position: relative;
+        padding-bottom: 2px;
+
+        @include min-1024 {
+          padding-bottom: 5px;
+        }
+      }
+
+      a:before {
+        content: "";
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        height: 4px;
+        width: 100%;
+        background-color: var(--secondary-color);
+        border-radius: 4px;
+        transform-origin: right;
+        transform: scaleX(0);
+        transition: transform 0.3s ease-in-out;
+      }
+
+      a:hover::before {
+        transform-origin: left;
+        transform: scaleX(1);
       }
     }
   }
