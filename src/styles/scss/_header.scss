@@ -1,8 +1,8 @@
 header {
   width: 100%;
+  height: 140px;
   position: absolute;
   z-index: 2;
-  overflow-x: hidden;
 
   .header__wrappers {
     display: flex;

@@ -57,12 +57,10 @@
 
 .menu-open {
   transform: translateX(0%);
-  position: fixed;
-  width: 60%;
 }
 
-.menu-open-icon {
+.menu-close-icon {
   position: fixed;
   width: 60%;
-  z-index: 1;
+  z-index: 2;
 }

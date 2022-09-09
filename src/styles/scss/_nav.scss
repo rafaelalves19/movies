@@ -16,13 +16,16 @@ nav {
     background-color: var(--main-color);
     opacity: 0.95;
     height: 100vh;
-    width: auto;
-    transform: translateX(150%);
+    width: 60%;
+    transform: translateX(300%);
     transition: transform 0.5s ease-in-out;
     text-align: center;
+    position: fixed;
+    
 
     @include min-1024 {
       width: 400px;
+      position: inherit;
       list-style-type: none;
       display: flex;
       flex-direction: inherit;

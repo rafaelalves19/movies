@@ -14,7 +14,7 @@ export default function Nav() {
     <>
       <nav>
         <div className="nav__burgerContainer">
-          <div className={isMenuOpen ? "menu-open-icon" : ""}>
+          <div className={isMenuOpen ? "menu-close-icon" : ""}>
             <Burger
               isMenuOpen={isMenuOpen}
               handleIsMenuOpen={handleIsMenuOpen}

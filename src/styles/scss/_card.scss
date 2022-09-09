@@ -1,9 +1,7 @@
 .card__moviesSlider {
-  height: 100%;
+  height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding-top: 180px;
 
   .card__background {
     width: 100%;
@@ -14,11 +12,11 @@
     }
   }
 
-  .card__infowrapper {
+  .card__infoWrapper {
+    height: 100vh;
     max-width: 991px;
 
     .card__moviePicture {
-      aspect-ratio: 6;
       position: relative;
       grid-column-start: 1;
       grid-column-end: span 2;
@@ -26,55 +24,55 @@
         grid-column-start: 1;
         grid-column-end: span 6;
       }
-      img {
+
+      .card__movieImage {
         width: 100%;
+        @include min-1024 {
+          border-radius: 12px;
+          box-shadow: 6px 6px 16px;
+        }
       }
     }
 
-    .card__movieImage {
-      border-radius: 12px;
-      box-shadow: 6px 6px 16px;
+    .card__info {
+      position: relative;
+      grid-column-start: 1;
+      grid-column-end: span 2;
+      @include min-640 {
+        grid-column-start: 7;
+        grid-column-end: span 6;
+      }
+
+      h1 {
+        position: relative;
+        color: var(--text-color);
+        font-size: 46px;
+        padding-bottom: 10px;
+      }
+
+      .card__genres {
+        list-style-type: none;
+
+        padding-bottom: 35px;
+        font-size: 16px;
+        display: flex;
+        justify-content: space-around;
+
+        li {
+          background-color: var(--main-color);
+          color: var(--text-color);
+          border-radius: 25px;
+          text-align: center;
+          width: 100px;
+          justify-content: center;
+        }
+      }
+
+      p {
+        padding-top: 25px;
+        font-size: 18px;
+        color: var(--text-color);
+      }
     }
   }
-}
-
-.card__info {
-  position: relative;
-  grid-column-start: 1;
-  grid-column-end: span 2;
-  @include min-640 {
-    grid-column-start: 7;
-    grid-column-end: span 6;
-  }
-}
-
-h1 {
-  position: relative;
-  color: var(--text-color);
-  font-size: 46px;
-  padding-bottom: 10px;
-}
-
-.card__genres {
-  list-style-type: none;
-
-  padding-bottom: 35px;
-  font-size: 16px;
-  display: flex;
-  justify-content: space-around;
-}
-
-.card__genres li {
-  background-color: var(--main-color);
-  color: var(--text-color);
-  border-radius: 25px;
-  text-align: center;
-  width: 100px;
-  justify-content: center;
-}
-
-p {
-  padding-top: 25px;
-  font-size: 18px;
-  color: var(--text-color);
 }
