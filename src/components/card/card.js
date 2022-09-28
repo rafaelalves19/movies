@@ -9,7 +9,7 @@ export default function Card() {
       <div className="card__background">
         <img
           className="card__backgroundImage"
-          src="/images/exemplo1.JPG"
+          src="/images/exemplo2.JPG"
           alt="foto"
         />
       </div>
