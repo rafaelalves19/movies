@@ -1,63 +1,61 @@
-@import "./_utils.scss";
-@import "./_card.scss";
-@import "./_header.scss";
-@import "./_hero.scss";
-@import "./_nav.scss";
-@import "./_burger.scss";
+@import './_utils.scss';
+@import './_card.scss';
+@import './_header.scss';
+@import './_nav.scss';
+@import './_burger.scss';
+@import './_slide.scss';
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  background-color: #2b7a78;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	margin: 0;
+	background-color: #2b7a78;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 ul {
-  list-style: none;
+	list-style: none;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+	color: inherit;
+	text-decoration: none;
 }
 
 button {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 .container {
-  padding-left: 10px;
-  padding-right: 10px;
-  margin: 0 auto;
-  max-width: 1440px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin: 0 auto;
+	max-width: 1440px;
 
-  @include min-1024 {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
+	@include min-1024 {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
 }
 
 .grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  @include min-640 {
-    grid-template-columns: repeat(12, 1fr);
-    gap: 20px;
-  }
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 10px;
+	@include min-640 {
+		grid-template-columns: repeat(12, 1fr);
+		gap: 20px;
+	}
 }
 
 :root {
-  --main-color: #3aafa9;
-  --secondary-color: #2b7a78;
-  --text-color: #def2f1;
+	--main-color: #3aafa9;
+	--secondary-color: #2b7a78;
+	--text-color: #def2f1;
 }
