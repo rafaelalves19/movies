@@ -5,16 +5,16 @@ export default function Card() {
 	return (
 		<div className='card__moviesSlider'>
 			<div className='card__background'>
-				<img className='card__backgroundImage' src='/images/exemplo2.JPG' alt='foto' />
+				<img className='card__backgroundImage' src='/images/4.jpg' alt='foto' />
 			</div>
 			<Container>
 				<div className='card__infoWrapper'>
 					<div className='card__moviePicture'>
 						<Grid>
-							<img className='card__movieImage' src='/images/exemplo4.JPG' alt='img' />
+							<img className='card__movieImage' src='/images/4.jpg' alt='img' />
 							<div className='card__info'>
 								<Container>
-									<h1>O burro sou eu!</h1>
+									<h1>Blonde</h1>
 									<ul className='card__genres'>
 										<li>Terror</li>
 										<li>Científico</li>
