@@ -2,20 +2,23 @@
 	aspect-ratio: 2/3;
 	width: 100%;
 	display: flex;
+
 	.slide__cardHover {
 		position: absolute;
-		display: flex;
 		width: 100%;
 		height: 100%;
-		justify-content: space-between;
-		align-items: flex-end;
 		padding: 5px;
 
 		h3 {
 			color: var(--text-color);
 		}
-		p {
-			color: var(--text-color);
+		.slide__cardHidden {
+			display: flex;
+			justify-content: space-between;
+
+			p {
+				color: var(--text-color);
+			}
 		}
 	}
 
