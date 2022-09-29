@@ -5,9 +5,9 @@ import 'swiper/css/pagination'
 
 const ItemCard = ({ data }) => {
 	return (
-		<div>
-			<p>{data?.title}</p>
-			<img src={data?.cover} />
+		<div className='slide__card'>
+			<h3>{data.title}</h3>
+			<img src={data.cover} />
 		</div>
 	)
 }
@@ -37,11 +37,11 @@ function Slide({ data }) {
 				}}
 				modules={[Pagination]}
 				className='mySwiper'>
-				<SwiperSlide>
-					{data.map((item, index) => (
+				{data.map((item, index) => (
+					<SwiperSlide>
 						<ItemCard key={index} data={item} />
-					))}
-				</SwiperSlide>
+					</SwiperSlide>
+				))}
 			</Swiper>
 		</>
 	)
