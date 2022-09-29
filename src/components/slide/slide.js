@@ -6,7 +6,13 @@ import 'swiper/css/pagination'
 const ItemCard = ({ data }) => {
 	return (
 		<div className='slide__card'>
-			<h3>{data.title}</h3>
+			<div className='slide__cardHover'>
+				<h3>{data.title}</h3>
+				<div>
+					<p>2022</p>
+					<p>1h 50m</p>
+				</div>
+			</div>
 			<img src={data.cover} />
 		</div>
 	)

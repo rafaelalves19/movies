@@ -1,4 +1,7 @@
-h1 {
+.slide__title {
 	color: var(--text-color);
 	padding: 10px 0;
+    margin-bottom: 40px;
+    border-bottom: 4px solid var(--main-color);
+    font-size: 36px;
 }

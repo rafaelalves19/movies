@@ -82,14 +82,12 @@ export default function Home() {
 	return (
 		<>
 			<Hero />
-			<div>
-				<Container>
-					<h1>Movies</h1>
-					<Slide data={dummy_movies} />
-					<h1>Series</h1>
-					<Slide data={dummy_series} />
-				</Container>
-			</div>
+			<Container>
+				<h1 className='slide__title'>Movies</h1>
+				<Slide data={dummy_movies} />
+				<h1 className='slide__title'>Series</h1>
+				<Slide data={dummy_series} />
+			</Container>
 		</>
 	)
 }
