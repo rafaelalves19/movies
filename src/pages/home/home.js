@@ -5,7 +5,7 @@ import Slide from '../../components/slide/slide'
 export default function Home() {
 	const dummy_movies = [
 		{
-			title: 'title 1',
+			title: 'O mundo mágico de rufus',
 			cover: '/images/1.jpg',
 			genres: ['animação', 'comédia'],
 		},
@@ -43,7 +43,7 @@ export default function Home() {
 
 	const dummy_series = [
 		{
-			title: 'title 1',
+			title: 'Os mauzões',
 			cover: '/images/7.jpg',
 			genres: ['animação', 'comédia'],
 		},

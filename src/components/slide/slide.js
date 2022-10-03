@@ -28,6 +28,10 @@ function Slide({ data }) {
 					clickable: true,
 				}}
 				breakpoints={{
+					400: {
+						slidesPerView: 2,
+						spaceBetween: 20,
+					},
 					640: {
 						slidesPerView: 2,
 						spaceBetween: 20,
