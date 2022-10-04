@@ -8,6 +8,7 @@ const ItemCard = ({ data }) => {
 		<div className='slide__card'>
 			<div className='slide__cardHover'>
 				<h3>{data.title}</h3>
+				<p>Terror</p>
 				<div className='slide__cardHidden'>
 					<p>2022</p>
 					<p>1h 50m</p>

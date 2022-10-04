@@ -1,62 +1,75 @@
 .slide__card {
-	aspect-ratio: 2/3;
-	width: 100%;
-	display: flex;
-	position: relative;
-	overflow: hidden;
-	border-radius: 5px;
-	cursor: pointer;
+  aspect-ratio: 2/3;
+  width: 100%;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px;
+  cursor: pointer;
 
-	&:hover {
-		.slide__cardHover {
-			bottom: 10px;
-		}
-	}
+  &:hover {
+    .slide__cardHover {
+      bottom: 0;
+    }
+  }
 
-	&::after {
-		content: '';
-		display: block;
-		width: 100%;
-		height: 100%;
-		background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
-		position: absolute;
-		top: 0;
-		left: 0;
-	}
+  &::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.5) 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
 
-	.slide__cardHover {
-		position: absolute;
-		bottom: -21px;
-		width: 100%;
-		padding: 0 15px;
-		text-shadow: 1px 1px 2px #000000;
-		z-index: 1;
+  .slide__cardHover {
+    position: absolute;
+    bottom: -30px;
+    width: 100%;
+    padding: 0 15px;
+    text-shadow: 1px 1px 2px #000000;
+    z-index: 1;
+    transition: ease 130ms;
 
-		h3 {
-			padding-bottom: 20px;
-			color: var(--text-color);
-		}
-		.slide__cardHidden {
-			display: flex;
-			justify-content: space-between;
+    h3 {
+      color: var(--text-color);
 
-			p {
-				color: var(--text-color);
-			}
-		}
-	}
+      @include min-640 {
+        font-size: 24px;
+      }
+    }
+    p {
+      color: var(--text-color);
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+    .slide__cardHidden {
+      display: flex;
+      justify-content: space-between;
 
-	img {
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-	}
+      p {
+        font-size: 16px;
+      }
+    }
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }
 
 .swiper {
-	padding-bottom: 30px !important;
+  padding-bottom: 30px !important;
 }
 
 :root {
-	--swiper-theme-color: var(--main-color) !important;
+  --swiper-theme-color: var(--main-color) !important;
 }
