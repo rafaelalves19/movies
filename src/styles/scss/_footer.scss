@@ -1,4 +1,28 @@
 footer {
   margin-top: 40px;
   background-color: #21615f;
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+
+  .footer__Icon1 {
+    position: absolute;
+    left: -50px;
+    bottom: -60px;
+    opacity: 0.4;
+  }
+  .footer__Icon2 {
+    position: absolute;
+    left: 50px;
+    bottom: -70px;
+  }
+
+  ul {
+    grid-column-start: 2;
+    color: var(--text-color);
+    text-align: center;
+    li {
+      padding-bottom: 5px;
+    }
+  }
 }
