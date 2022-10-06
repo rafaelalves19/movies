@@ -1,6 +1,6 @@
 import Popcorn from "../icons/popcorn";
 import Grid from "../grid/grid";
-import Racket from "../icons/racket";
+import Clapper from "../icons/clapper";
 import { Link } from "react-router-dom";
 import Github from "../icons/github";
 import Linkedin from "../icons/linkedin";
@@ -13,7 +13,7 @@ export default function Footer() {
           <Popcorn />
         </div>
         <div className="footer__Icon2">
-          <Racket />
+          <Clapper />
         </div>
         <ul>
           <li>
@@ -29,8 +29,17 @@ export default function Footer() {
             <Link to="/series">Series</Link>
           </li>
         </ul>
-        <Github />
-        <Linkedin />
+        <p>
+          Made by <span>Rafael Alves</span>
+        </p>
+        <div className="footer__linkPages">
+          <a href="https://github.com/rafaelalves19">
+            <Github />
+          </a>
+          <a href="https://www.linkedin.com/in/rafaelalves19/">
+            <Linkedin />
+          </a>
+        </div>
       </Grid>
     </footer>
   );

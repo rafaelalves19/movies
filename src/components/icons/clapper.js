@@ -1,4 +1,4 @@
-function Racket() {
+function Clapper() {
   return (
     <svg
       width="180px"
@@ -79,4 +79,4 @@ function Racket() {
   );
 }
 
-export default Racket;
+export default Clapper;

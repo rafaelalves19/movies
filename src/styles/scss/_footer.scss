@@ -4,6 +4,7 @@ footer {
   position: relative;
   height: 200px;
   overflow: hidden;
+  padding-top: 20px;
 
   .footer__Icon1 {
     position: absolute;
@@ -21,8 +22,53 @@ footer {
     grid-column-start: 2;
     color: var(--text-color);
     text-align: center;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    @include min-640 {
+      grid-template-columns: repeat(12, 1fr);
+      grid-column-start: 6;
+      grid-column-end: span 6;
+      display: flex;
+      justify-content: space-between;
+    }
+
     li {
-      padding-bottom: 5px;
+      padding: 12px 0;
+      font-size: 18px;
+
+      @include min-640 {
+        font-size: 20px;
+
+      }
+    }
+  }
+
+  p {
+    grid-column-start: 2;
+    text-align: center;
+
+    @include min-640 {
+      grid-column-start: 7;
+      grid-column-end: span 4;
+    }
+
+    span {
+      color: var(--secondary-color);
+    }
+  }
+
+  .footer__linkPages {
+    text-align: center;
+    grid-column-start: 2;
+
+    @include min-640 {
+      grid-column-start: 7;
+      grid-column-end: span 4;
+    }
+
+    a {
+      margin: 0 15px;
     }
   }
 }
