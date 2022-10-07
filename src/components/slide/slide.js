@@ -2,20 +2,23 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
+import { Link } from "react-router-dom";
 
 const ItemCard = ({ data }) => {
   return (
-    <div className="slide__card">
-      <div className="slide__cardHover">
-        <h3>{data.title}</h3>
-        <p>Terror</p>
-        <div className="slide__cardHidden">
-          <p>2022</p>
-          <p>1h 50m</p>
+    <Link to="poster" /* data={data} */>
+      <div className="slide__card">
+        <div className="slide__cardHover">
+          <h3>{data.title}</h3>
+          <p>Terror</p>
+          <div className="slide__cardHidden">
+            <p>2022</p>
+            <p>1h 50m</p>
+          </div>
         </div>
+        <img src={data.cover} alt="movie" />
       </div>
-      <img src={data.cover} alt="movie" />
-    </div>
+    </Link>
   );
 };
 

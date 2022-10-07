@@ -1,8 +1,8 @@
 function Clapper() {
   return (
     <svg
-      width="180px"
-      height="180px"
+      width="170px"
+      height="170px"
       viewBox="0 -16.49 146.808 146.808"
       xmlns="http://www.w3.org/2000/svg"
     >
