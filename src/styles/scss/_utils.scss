@@ -18,6 +18,13 @@
 		@content;
 	}
 }
+
+@mixin min-1140 {
+	@media screen and (min-width: 1140px) {
+		@content;
+	}
+}
+
 @mixin min-1024 {
 	@media screen and (min-width: 1024px) {
 		@content;

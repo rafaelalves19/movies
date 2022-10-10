@@ -1,8 +1,12 @@
 import Container from '../../components/container/container'
 import Hero from '../../components/hero/hero'
 import Slide from '../../components/slide/slide'
+import { useEffect } from 'react'
+export default function Home({ movies, isLoading }) {
+	useEffect(() => {
+		console.log(movies)
+	}, [])
 
-export default function Home() {
 	const dummy_movies = [
 		{
 			title: 'O mundo mágico de rufus',
@@ -81,13 +85,19 @@ export default function Home() {
 
 	return (
 		<>
-			<Hero />
-			<Container>
-				<h1 className='slide__title'>Movies</h1>
-				<Slide data={dummy_movies} />
-				<h1 className='slide__title'>Series</h1>
-				<Slide data={dummy_series} />
-			</Container>
+			{isLoading ? (
+				<h1>Loading</h1>
+			) : (
+				<>
+					<Hero movies={movies} />
+					<Container>
+						<h1 className='slide__title'>Movies</h1>
+						<Slide data={dummy_movies} />
+						<h1 className='slide__title'>Series</h1>
+						<Slide data={dummy_series} />
+					</Container>
+				</>
+			)}
 		</>
 	)
 }
