@@ -1,28 +1,52 @@
+import { useEffect, useState } from "react";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Link } from "react-router-dom";
 
-const ItemCard = ({ data }) => {
+const ItemCard = ({ latest }) => {
+  const getYear = (date) => {
+    const newDate = new Date(date);
+    const year = newDate.getFullYear();
+    return year;
+  };
+
   return (
-    <Link to="poster" /* data={data} */>
+    <Link to="poster">
       <div className="slide__card">
         <div className="slide__cardHover">
-          <h3>{data.title}</h3>
-          <p>Terror</p>
+          <h3>{latest.name || latest.title}</h3>
+          {/* <p>Terror</p> */}
           <div className="slide__cardHidden">
-            <p>2022</p>
-            <p>1h 50m</p>
+            <p>
+              {getYear(latest.release_date) || getYear(latest.first_air_date)}
+            </p>
+            <p>{latest.vote_average}</p>
+            {/* <p>1h 50m</p> */}
           </div>
         </div>
-        <img src={data.cover} alt="movie" />
+        <img
+          src={`https://image.tmdb.org/t/p/original/${latest.backdrop_path}`}
+          alt="movie"
+        />
       </div>
     </Link>
   );
 };
 
-function Slide({ data }) {
+function Slide({ endpoint }) {
+  const [latests, setlatests] = useState([]);
+
+  useEffect(() => {
+    fetch(endpoint)
+      .then((response) => response.json())
+      .then((data) => {
+        setlatests(data.results);
+        /* setIsLoading(false); */
+      });
+  }, []);
   return (
     <>
       <Swiper
@@ -52,11 +76,12 @@ function Slide({ data }) {
         modules={[Pagination]}
         className="mySwiper"
       >
-        {data.map((item, index) => (
-          <SwiperSlide>
-            <ItemCard key={index} data={item} />
-          </SwiperSlide>
-        ))}
+        {latests &&
+          latests.map((latest) => (
+            <SwiperSlide>
+              <ItemCard latest={latest} />
+            </SwiperSlide>
+          ))}
       </Swiper>
     </>
   );

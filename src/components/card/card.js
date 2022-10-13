@@ -1,6 +1,5 @@
 import Grid from '../grid/grid'
 import Container from '../container/container'
-import { useEffect, useState } from 'react'
 
 export default function Card({ movie }) {
 	return (

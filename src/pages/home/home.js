@@ -1,103 +1,21 @@
-import Container from '../../components/container/container'
-import Hero from '../../components/hero/hero'
-import Slide from '../../components/slide/slide'
-import { useEffect } from 'react'
-export default function Home({ movies, isLoading }) {
-	useEffect(() => {
-		console.log(movies)
-	}, [])
+import Container from "../../components/container/container";
+import Hero from "../../components/hero/hero";
+import Slide from "../../components/slide/slide";
+import { useEffect } from "react";
+export default function Home({ isLoading, latests }) {
+  useEffect(() => {
+    console.log(latests);
+  }, []);
 
-	const dummy_movies = [
-		{
-			title: 'O mundo mágico de rufus',
-			cover: '/images/1.jpg',
-			genres: ['animação', 'comédia'],
-		},
-		{
-			title: 'title 2',
-			cover: '/images/2.jpg',
-			genres: ['comédia'],
-		},
-		{
-			title: 'title 3',
-			cover: '/images/3.jpg',
-			genres: ['animação'],
-		},
-		{
-			title: 'title 4',
-			cover: '/images/4.jpg',
-			genres: ['comédia'],
-		},
-		{
-			title: 'title 5',
-			cover: '/images/5.jpg',
-			genres: ['animação'],
-		},
-		{
-			title: 'title 6',
-			cover: '/images/6.jpg',
-			genres: ['comédia'],
-		},
-		{
-			title: 'title 7',
-			cover: '/images/7.jpg',
-			genres: ['animação'],
-		},
-	]
-
-	const dummy_series = [
-		{
-			title: 'Os mauzões',
-			cover: '/images/7.jpg',
-			genres: ['animação', 'comédia'],
-		},
-		{
-			title: 'title 2',
-			cover: '/images/6.jpg',
-			genres: ['comédia'],
-		},
-		{
-			title: 'title 3',
-			cover: '/images/5.jpg',
-			genres: ['animação'],
-		},
-		{
-			title: 'title 4',
-			cover: '/images/4.jpg',
-			genres: ['animação', 'comédia'],
-		},
-		{
-			title: 'title 5',
-			cover: '/images/3.jpg',
-			genres: ['comédia'],
-		},
-		{
-			title: 'title 6',
-			cover: '/images/2.jpg',
-			genres: ['animação'],
-		},
-		{
-			title: 'title 7',
-			cover: '/images/1.jpg',
-			genres: ['animação'],
-		},
-	]
-
-	return (
-		<>
-			{isLoading ? (
-				<h1>Loading</h1>
-			) : (
-				<>
-					<Hero movies={movies} />
-					<Container>
-						<h1 className='slide__title'>Movies</h1>
-						<Slide data={dummy_movies} />
-						<h1 className='slide__title'>Series</h1>
-						<Slide data={dummy_series} />
-					</Container>
-				</>
-			)}
-		</>
-	)
+  return (
+    <>
+      <Hero />
+      <Container>
+        <h1 className="slide__title">Movies</h1>
+        <Slide endpoint="https://api.themoviedb.org/3/movie/now_playing?api_key=4f35f23d89519dfc54aa247e4881df87&language=en-US&page=1" />
+        <h1 className="slide__title">Series</h1>
+        <Slide endpoint="https://api.themoviedb.org/3/tv/popular?api_key=4f35f23d89519dfc54aa247e4881df87&language=en-US&page=1" />
+      </Container>
+    </>
+  );
 }
