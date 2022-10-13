@@ -28,7 +28,7 @@ const ItemCard = ({ latest }) => {
           </div>
         </div>
         <img
-          src={`https://image.tmdb.org/t/p/original/${latest.backdrop_path}`}
+          src={`https://image.tmdb.org/t/p/original/${latest.poster_path}`}
           alt="movie"
         />
       </div>
