@@ -30,10 +30,9 @@
 
   .slide__cardHover {
     position: absolute;
-    bottom: -30px;
+    bottom: -35px;
     width: 100%;
     padding: 0 15px;
-    text-shadow: 1px 1px 2px #000000;
     z-index: 1;
     transition: ease 130ms;
 
@@ -61,7 +60,8 @@
       p {
         color: var(--text-color);
         font-size: 12px;
-        margin: 20px 0 10px 0;
+        margin: 15px 0 5px 0;
+        padding: 3px 5px;
 
         @include min-640 {
           font-size: 18px;
@@ -74,6 +74,16 @@
         @include min-1140 {
           font-size: 14px;
         }
+
+        span {
+          color: gray;
+        }
+      }
+
+      .slide__avarege {
+        background-color: #f3ce13;
+        border-radius: 5px;
+        color: #000000;
       }
     }
   }

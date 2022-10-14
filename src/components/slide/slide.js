@@ -23,7 +23,11 @@ const ItemCard = ({ latest }) => {
             <p>
               {getYear(latest.release_date) || getYear(latest.first_air_date)}
             </p>
-            <p>{latest.vote_average}</p>
+
+            <p className="slide__avarege">
+              IMDB {latest.vote_average}
+              <span>/10</span>
+            </p>
             {/* <p>1h 50m</p> */}
           </div>
         </div>
