@@ -1,11 +1,8 @@
 import Container from "../../components/container/container";
 import Hero from "../../components/hero/hero";
 import Slide from "../../components/slide/slide";
-import { useEffect } from "react";
 export default function Home({ isLoading, latests }) {
-  useEffect(() => {
-    console.log(latests);
-  }, []);
+ 
 
   return (
     <>

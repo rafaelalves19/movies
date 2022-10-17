@@ -17,7 +17,7 @@ export default function Hero() {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        
         setMovies(data.results);
        /*  setIsLoading(false); */
       });
@@ -26,15 +26,15 @@ export default function Hero() {
   return (
     <div className="hero__slide">
       <Swiper
-        /* autoplay={{
+         autoplay={{
           delay: 5500,
           disableOnInteraction: false,
-        }} */
+        }} 
         spaceBetween={0}
         centeredSlides={true}
         modules={
           [
-            /* Autoplay */
+             Autoplay 
           ]
         }
         className="mySwiper"
