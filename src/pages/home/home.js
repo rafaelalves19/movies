@@ -1,7 +1,7 @@
 import Container from "../../components/container/container";
 import Hero from "../../components/hero/hero";
 import Slide from "../../components/slide/slide";
-export default function Home({ isLoading, latests }) {
+export default function Home() {
  
 
   return (
