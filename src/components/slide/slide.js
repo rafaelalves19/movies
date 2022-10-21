@@ -14,7 +14,7 @@ const ItemCard = ({ latest }) => {
 	}
 
 	return (
-		<Link to={`poster/${latest.id}`}>
+		<Link  to={`poster/${latest.id}`} >
 			<div className='slide__card'>
 				<div className='slide__cardHover'>
 					<h3>{latest.name || latest.title}</h3>
