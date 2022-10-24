@@ -74,16 +74,16 @@
         @include min-1140 {
           font-size: 14px;
         }
-
-        span {
-          color: gray;
-        }
       }
 
       .slide__avarege {
         background-color: #f3ce13;
         border-radius: 5px;
         color: #000000;
+        
+        span {
+          color: gray;
+        }
       }
     }
   }

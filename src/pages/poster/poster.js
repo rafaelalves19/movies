@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import Container from "../../components/container/container";
 import Grid from "../../components/grid/grid";
 
-const CastCard = ({ cast }) => {
+const SingleCastCard = ({ cast }) => {
   return (
     <div className="card">
       <img
@@ -27,7 +27,13 @@ const CastCard = ({ cast }) => {
 
 function Poster() {
   const [castCard, setCastCard] = useState([]);
-  const [poster, setPoster] = useState([]);
+  const [poster, setPoster] = useState(null);
+
+  const getYear = (date) => {
+    const newDate = new Date(date);
+    const year = newDate.getFullYear();
+    return year;
+  };
 
   useEffect(() => {
     fetch(
@@ -39,88 +45,91 @@ function Poster() {
       });
   }, []);
 
-
   useEffect(() => {
     fetch(
       `https://api.themoviedb.org/3/movie/616820?api_key=4f35f23d89519dfc54aa247e4881df87&language=en-US`
     )
       .then((response) => response.json())
       .then((data) => {
-        setPoster(data.results);
-        console.log(data);
+        setPoster(data);
       });
   }, []);
 
   return (
     <>
-      <div className="poster">
-        {poster &&
-          poster.map((post) => (
-            <div className="poster__imgContainer">
-              <img
-                src={`https://image.tmdb.org/t/p/original/${post.backdrop_path}`}
-                alt="movie"
-              />
+      {poster && (
+        <div className="poster">
+          <div className="poster__imgBackgroung">
+            <img
+              src={`https://image.tmdb.org/t/p/original/${poster.backdrop_path}`}
+              alt="movie"
+            />
+          </div>
+
+          <Container>
+            <div className="poster__details">
+              <Grid>
+                <img
+                  className="poster__img"
+                  src={`https://image.tmdb.org/t/p/w400/${poster.poster_path}`}
+                  alt="movie"
+                />
+                <div className="poster__info">
+                  <h2>
+                    {poster.title}
+                    <span> &#40;{getYear(poster.release_date)}&#41;</span>
+                  </h2>
+                  <p className="poster__average">
+                    {/* <-----Circular bar (%) ------>*/}
+                    IMDB {poster.vote_average}
+                    <span>/10</span>
+                  </p>
+                  <h3>Overview</h3>
+                  <p className="poster__overview">{poster.overview}</p>
+                </div>
+              </Grid>
             </div>
-          ))}
-
-        <Container>
-          <div className="poster__details">
-            <Grid>
-              {/* <img
-                src={`https://image.tmdb.org/t/p/w400/${post.poster_path}`}
-                alt="movie"
-              /> */}
-              <div className="poster__title">
-                {/* <h2>
-                  {post.title}
-                  <span>2010</span>
-                </h2> */}
-              </div>
-              <p className="poster__classification">IMDB 8.4/10</p>
-              <h3>Sinopse</h3>
-              <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quidem
-                inventore repellat, eligendi blanditiis nulla optio non illo,
-                hic doloribus dignissimos quam soluta officia, harum distinctio!
-                Ea sequi id vel neque!
-              </p>
-              <h3 className="poster__director"></h3>
-            </Grid>
-          </div>
-
-          <div className="poster__contentWrapper">
-            <section className="poster__castSlider">
-              <Swiper
-                slidesPerView={1}
-                spaceBetween={10}
-                breakpoints={{
-                  640: {
-                    slidesPerView: 2,
-                    spaceBetween: 20,
-                  },
-                  768: {
-                    slidesPerView: 4,
-                    spaceBetween: 40,
-                  },
-                  1024: {
-                    slidesPerView: 5,
-                    spaceBetween: 50,
-                  },
-                }}
-                className="mySwiper"
-              >
-                {castCard &&
-                  castCard.map((cast) => (
-                    <SwiperSlide>
-                      <CastCard cast={cast} />
-                    </SwiperSlide>
-                  ))}
-              </Swiper>
-            </section>
-          </div>
-        </Container>
-      </div>
+            <div className="poster__contentWrapper">
+              <h2>Cast</h2>
+              <section className="poster__castSlider">
+                <Swiper
+                  slidesPerView={1}
+                  spaceBetween={10}
+                  breakpoints={{
+                    400: {
+                      slidesPerView: 1,
+                    },
+                    440: {
+                      slidesPerView: 2,
+                      spaceBetween: 10,
+                    },
+                    640: {
+                      slidesPerView: 3,
+                      spaceBetween: 20,
+                    },
+                    768: {
+                      slidesPerView: 3,
+                      spaceBetween: 40,
+                    },
+                    1024: {
+                      slidesPerView: 5,
+                      spaceBetween: 50,
+                    },
+                  }}
+                  className="mySwiper"
+                >
+                  {castCard &&
+                    castCard.map((cast) => (
+                      <SwiperSlide>
+                        <SingleCastCard cast={cast} />
+                      </SwiperSlide>
+                    ))}
+                </Swiper>
+              </section>
+            </div>
+          </Container>
+        </div>
+      )}
     </>
   );
 }

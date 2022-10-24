@@ -7,6 +7,7 @@ import 'swiper/css/pagination'
 import { Link } from 'react-router-dom'
 
 const ItemCard = ({ latest }) => {
+	
 	const getYear = date => {
 		const newDate = new Date(date)
 		const year = newDate.getFullYear()
