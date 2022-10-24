@@ -69,11 +69,13 @@ function Poster() {
           <Container>
             <div className="poster__details">
               <Grid>
-                <img
-                  className="poster__img"
-                  src={`https://image.tmdb.org/t/p/w400/${poster.poster_path}`}
-                  alt="movie"
-                />
+                <div className="poster__imgpicture">
+                  <img
+                    src={`https://image.tmdb.org/t/p/w400/${poster.poster_path}`}
+                    alt="movie"
+                  />
+                </div>
+
                 <div className="poster__info">
                   <h2>
                     {poster.title}
