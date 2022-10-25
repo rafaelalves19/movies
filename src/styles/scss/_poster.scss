@@ -16,14 +16,14 @@
       object-fit: cover;
 
       @include min-640 {
-        filter: grayscale(50%) brightness(0.4) opacity(1);
+        filter: grayscale(50%) brightness(0.3) opacity(1);
       }
     }
   }
 
   .poster__details {
     @include min-640 {
-      top: 145px;
+      top: 130px;
       position: absolute;
     }
     .poster__imgpicture {
@@ -36,7 +36,7 @@
         border-radius: 10px;
         overflow: hidden;
         width: 220px;
-        height: 330px;
+        height: 320px;
       }
 
       @include min-1024 {

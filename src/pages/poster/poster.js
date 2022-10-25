@@ -27,7 +27,9 @@ const SingleCastCard = ({ cast }) => {
 
 function Poster() {
   const [castCard, setCastCard] = useState([]);
-  const [poster, setPoster] = useState(null);
+  const [crewInfo, setCrewInfo] = useState([]);
+  const [poster, setPoster] = useState([]);
+  const crewSlice = crewInfo.slice(0, 6);
 
   const getYear = (date) => {
     const newDate = new Date(date);
@@ -37,17 +39,18 @@ function Poster() {
 
   useEffect(() => {
     fetch(
-      `https://api.themoviedb.org/3/movie/616820/credits?api_key=4f35f23d89519dfc54aa247e4881df87&language=en-US`
+      `https://api.themoviedb.org/3/movie/539681/credits?api_key=4f35f23d89519dfc54aa247e4881df87&language=en-US`
     )
       .then((response) => response.json())
       .then((data) => {
         setCastCard(data.cast);
+        setCrewInfo(data.crew);
       });
   }, []);
 
   useEffect(() => {
     fetch(
-      `https://api.themoviedb.org/3/movie/616820?api_key=4f35f23d89519dfc54aa247e4881df87&language=en-US`
+      `https://api.themoviedb.org/3/movie/539681?api_key=4f35f23d89519dfc54aa247e4881df87&language=en-US`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -88,6 +91,16 @@ function Poster() {
                   </p>
                   <h3>Overview</h3>
                   <p className="poster__overview">{poster.overview}</p>
+                  <h3>Crew</h3>
+                  {crewSlice &&
+                    crewSlice.map((crew) => (
+                      <ul>
+                        <li>
+                          <b>{crew.name}</b>
+                          <p>{crew.known_for_department}</p>
+                        </li>
+                      </ul>
+                    ))}
                 </div>
               </Grid>
             </div>
