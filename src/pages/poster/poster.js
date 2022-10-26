@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 import Container from "../../components/container/container";
 import Grid from "../../components/grid/grid";
+import Videos from "./videos";
 
 const SingleCastCard = ({ cast }) => {
   return (
@@ -29,7 +30,7 @@ function Poster() {
   const [castCard, setCastCard] = useState([]);
   const [crewInfo, setCrewInfo] = useState([]);
   const [poster, setPoster] = useState([]);
-  const crewSlice = crewInfo.slice(0, 6);
+  const crewSlice = crewInfo.slice(0, 8);
 
   const getYear = (date) => {
     const newDate = new Date(date);
@@ -91,21 +92,23 @@ function Poster() {
                   </p>
                   <h3>Overview</h3>
                   <p className="poster__overview">{poster.overview}</p>
-                  <h3>Crew</h3>
-                  {crewSlice &&
-                    crewSlice.map((crew) => (
-                      <ul>
-                        <li>
-                          <b>{crew.name}</b>
-                          <p>{crew.known_for_department}</p>
-                        </li>
-                      </ul>
-                    ))}
                 </div>
               </Grid>
             </div>
+            <div className="poster_crew">
+              <h3>Crew</h3>
+              <ul>
+                {crewSlice &&
+                  crewSlice.map((crew) => (
+                    <li>
+                      <b>{crew.name}</b>
+                      <p>{crew.known_for_department}</p>
+                    </li>
+                  ))}
+              </ul>
+            </div>
             <div className="poster__contentWrapper">
-              <h2>Cast</h2>
+              <h3>Cast</h3>
               <section className="poster__castSlider">
                 <Swiper
                   slidesPerView={1}
@@ -140,6 +143,9 @@ function Poster() {
                       </SwiperSlide>
                     ))}
                 </Swiper>
+              </section>
+              <section className="poster__videosSlider">
+                <Videos />
               </section>
             </div>
           </Container>
