@@ -1,88 +1,97 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from "react";
 
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Pagination } from 'swiper'
-import 'swiper/css'
-import 'swiper/css/pagination'
-import { Link } from 'react-router-dom'
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper";
+import "swiper/css";
+import "swiper/css/pagination";
+import { Link } from "react-router-dom";
+
+export const handleClick = (event) => {
+  console.log(event.currentTarget.id);
+};
 
 const ItemCard = ({ latest }) => {
-	
-	const getYear = date => {
-		const newDate = new Date(date)
-		const year = newDate.getFullYear()
-		return year
-	}
+  const getYear = (date) => {
+    const newDate = new Date(date);
+    const year = newDate.getFullYear();
+    return year;
+  };
 
-	return (
-		<Link  to={`poster/${latest.id}`} >
-			<div className='slide__card'>
-				<div className='slide__cardHover'>
-					<h3>{latest.name || latest.title}</h3>
+  return (
+    <Link to={`poster/${latest.id}`} id={latest.id} /* onClick={handleClick} */>
+      <div className="slide__card">
+        <div className="slide__cardHover">
+          <h3>{latest.name || latest.title}</h3>
 
-					<div className='slide__cardHidden'>
-						<p>{getYear(latest.release_date) || getYear(latest.first_air_date)}</p>
+          <div className="slide__cardHidden">
+            <p>
+              {getYear(latest.release_date) || getYear(latest.first_air_date)}
+            </p>
 
-						<p className='slide__avarege'>
-							IMDB {latest.vote_average}
-							<span>/10</span>
-						</p>
-					</div>
-				</div>
-				<img src={`https://image.tmdb.org/t/p/original/${latest.poster_path}`} alt='movie' />
-			</div>
-		</Link>
-	)
-}
+            <p className="slide__avarege">
+              IMDB {latest.vote_average}
+              <span>/10</span>
+            </p>
+          </div>
+        </div>
+        <img
+          src={`https://image.tmdb.org/t/p/original/${latest.poster_path}`}
+          alt="movie"
+        />
+      </div>
+    </Link>
+  );
+};
 
 function Slide({ endpoint }) {
-	const [latests, setlatests] = useState([])
+  const [latests, setlatests] = useState([]);
 
-	useEffect(() => {
-		fetch(endpoint)
-			.then(response => response.json())
-			.then(data => {
-				setlatests(data.results)
-				/* setIsLoading(false); */
-			})
-	}, [])
-	return (
-		<>
-			<Swiper
-				slidesPerView={1}
-				spaceBetween={10}
-				pagination={{
-					clickable: true,
-				}}
-				breakpoints={{
-					100: {
-						slidesPerView: 2,
-						spaceBetween: 20,
-					},
-					640: {
-						slidesPerView: 2,
-						spaceBetween: 20,
-					},
-					768: {
-						slidesPerView: 4,
-						spaceBetween: 40,
-					},
-					1024: {
-						slidesPerView: 5,
-						spaceBetween: 50,
-					},
-				}}
-				modules={[Pagination]}
-				className='mySwiper'>
-				{latests &&
-					latests.map(latest => (
-						<SwiperSlide>
-							<ItemCard latest={latest} />
-						</SwiperSlide>
-					))}
-			</Swiper>
-		</>
-	)
+  useEffect(() => {
+    fetch(endpoint)
+      .then((response) => response.json())
+      .then((data) => {
+        setlatests(data.results);
+        /* setIsLoading(false); */
+      });
+  }, []);
+  return (
+    <>
+      <Swiper
+        slidesPerView={1}
+        spaceBetween={10}
+        pagination={{
+          clickable: true,
+        }}
+        breakpoints={{
+          100: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 4,
+            spaceBetween: 40,
+          },
+          1024: {
+            slidesPerView: 5,
+            spaceBetween: 50,
+          },
+        }}
+        modules={[Pagination]}
+        className="mySwiper"
+      >
+        {latests &&
+          latests.map((latest) => (
+            <SwiperSlide>
+              <ItemCard latest={latest} />
+            </SwiperSlide>
+          ))}
+      </Swiper>
+    </>
+  );
 }
 
-export default Slide
+export default Slide;

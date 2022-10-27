@@ -10,7 +10,9 @@
 
   h3 {
     color: var(--main-color);
-    padding-bottom: 10px;
+    padding-bottom: 5px;
+    margin: 20px 0;
+    border-bottom: solid 3px ;
   }
 
   .poster__imgBackgroung {
@@ -117,4 +119,9 @@
       }
     }
   }
+  /* .poster__contentWrapper {
+    .poster__videosSlider {
+      text-align: center;
+    }
+  } */
 }

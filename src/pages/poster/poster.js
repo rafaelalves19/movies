@@ -1,10 +1,15 @@
 import { useState, useEffect } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper";
 
 import Container from "../../components/container/container";
 import Grid from "../../components/grid/grid";
 import Videos from "./videos";
+
+import { handleClick } from "../../components/slide/slide";
+
+import "swiper/css/pagination";
 
 const SingleCastCard = ({ cast }) => {
   return (
@@ -40,22 +45,22 @@ function Poster() {
 
   useEffect(() => {
     fetch(
+      `https://api.themoviedb.org/3/movie/${id}?api_key=4f35f23d89519dfc54aa247e4881df87&language=en-US`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        setPoster(data);
+      });
+  }, []);
+
+  useEffect(() => {
+    fetch(
       `https://api.themoviedb.org/3/movie/539681/credits?api_key=4f35f23d89519dfc54aa247e4881df87&language=en-US`
     )
       .then((response) => response.json())
       .then((data) => {
         setCastCard(data.cast);
         setCrewInfo(data.crew);
-      });
-  }, []);
-
-  useEffect(() => {
-    fetch(
-      `https://api.themoviedb.org/3/movie/539681?api_key=4f35f23d89519dfc54aa247e4881df87&language=en-US`
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        setPoster(data);
       });
   }, []);
 
@@ -113,6 +118,9 @@ function Poster() {
                 <Swiper
                   slidesPerView={1}
                   spaceBetween={10}
+                  pagination={{
+                    clickable: true,
+                  }}
                   breakpoints={{
                     400: {
                       slidesPerView: 1,
@@ -134,6 +142,7 @@ function Poster() {
                       spaceBetween: 50,
                     },
                   }}
+                  modules={[Pagination]}
                   className="mySwiper"
                 >
                   {castCard &&
