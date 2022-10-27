@@ -53,7 +53,7 @@ function Slide({ endpoint, category }) {
         setlatests(data.results);
         /* setIsLoading(false); */
       });
-  }, []);
+  }, [endpoint]);
   return (
     <>
       <Swiper

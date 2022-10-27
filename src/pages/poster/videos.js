@@ -11,7 +11,6 @@ function Videos(props) {
   const [videos, setVideos] = useState([]);
 
   useEffect(() => {
-    console.log(props);
     fetch(
       `https://api.themoviedb.org/3/${props.category}/${props.id}/videos?api_key=4f35f23d89519dfc54aa247e4881df87&language=en-US`
     )
@@ -19,7 +18,7 @@ function Videos(props) {
       .then((data) => {
         setVideos(data.results);
       });
-  }, []);
+  }, [props.category, props.id]);
 
   return (
     <>

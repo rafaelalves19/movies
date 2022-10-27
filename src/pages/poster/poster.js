@@ -53,7 +53,7 @@ function Poster(props) {
         setPoster(data);
         console.log(data);
       });
-  }, []);
+  }, [props.category, id]);
 
   useEffect(() => {
     fetch(
@@ -64,7 +64,7 @@ function Poster(props) {
         setCastCard(data.cast);
         setCrewInfo(data.crew);
       });
-  }, []);
+  }, [props.category, id]);
 
   return (
     <>
