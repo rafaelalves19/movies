@@ -10,7 +10,7 @@ export const handleClick = (event) => {
   console.log(event.currentTarget.id);
 };
 
-const ItemCard = ({ latest }) => {
+const ItemCard = ({ latest, category }) => {
   const getYear = (date) => {
     const newDate = new Date(date);
     const year = newDate.getFullYear();
@@ -18,7 +18,7 @@ const ItemCard = ({ latest }) => {
   };
 
   return (
-    <Link to={`poster/${latest.id}`} id={latest.id} /* onClick={handleClick} */>
+    <Link to={`poster/${category}/${latest.id}`} id={latest.id}>
       <div className="slide__card">
         <div className="slide__cardHover">
           <h3>{latest.name || latest.title}</h3>
@@ -43,7 +43,7 @@ const ItemCard = ({ latest }) => {
   );
 };
 
-function Slide({ endpoint }) {
+function Slide({ endpoint, category }) {
   const [latests, setlatests] = useState([]);
 
   useEffect(() => {
@@ -84,9 +84,9 @@ function Slide({ endpoint }) {
         className="mySwiper"
       >
         {latests &&
-          latests.map((latest) => (
-            <SwiperSlide>
-              <ItemCard latest={latest} />
+          latests.map((latest, key) => (
+            <SwiperSlide key={key}>
+              <ItemCard category={category} latest={latest} />
             </SwiperSlide>
           ))}
       </Swiper>

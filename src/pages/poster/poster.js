@@ -6,8 +6,7 @@ import { Pagination } from "swiper";
 import Container from "../../components/container/container";
 import Grid from "../../components/grid/grid";
 import Videos from "./videos";
-
-import { handleClick } from "../../components/slide/slide";
+import { useParams } from "react-router-dom";
 
 import "swiper/css/pagination";
 
@@ -31,11 +30,13 @@ const SingleCastCard = ({ cast }) => {
   </>)
 } */
 
-function Poster() {
+function Poster(props) {
   const [castCard, setCastCard] = useState([]);
   const [crewInfo, setCrewInfo] = useState([]);
   const [poster, setPoster] = useState([]);
   const crewSlice = crewInfo.slice(0, 8);
+
+  const { id } = useParams();
 
   const getYear = (date) => {
     const newDate = new Date(date);
@@ -45,17 +46,18 @@ function Poster() {
 
   useEffect(() => {
     fetch(
-      `https://api.themoviedb.org/3/movie/${id}?api_key=4f35f23d89519dfc54aa247e4881df87&language=en-US`
+      `https://api.themoviedb.org/3/${props.category}/${id}?api_key=4f35f23d89519dfc54aa247e4881df87&language=en-US`
     )
       .then((response) => response.json())
       .then((data) => {
         setPoster(data);
+        console.log(data);
       });
   }, []);
 
   useEffect(() => {
     fetch(
-      `https://api.themoviedb.org/3/movie/539681/credits?api_key=4f35f23d89519dfc54aa247e4881df87&language=en-US`
+      `https://api.themoviedb.org/3/${props.category}/${id}/credits?api_key=4f35f23d89519dfc54aa247e4881df87&language=en-US`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -104,8 +106,8 @@ function Poster() {
               <h3>Crew</h3>
               <ul>
                 {crewSlice &&
-                  crewSlice.map((crew) => (
-                    <li>
+                  crewSlice.map((crew, key) => (
+                    <li key={key}>
                       <b>{crew.name}</b>
                       <p>{crew.known_for_department}</p>
                     </li>
@@ -146,15 +148,15 @@ function Poster() {
                   className="mySwiper"
                 >
                   {castCard &&
-                    castCard.map((cast) => (
-                      <SwiperSlide>
+                    castCard.map((cast, key) => (
+                      <SwiperSlide key={key}>
                         <SingleCastCard cast={cast} />
                       </SwiperSlide>
                     ))}
                 </Swiper>
               </section>
               <section className="poster__videosSlider">
-                <Videos />
+                <Videos category={props.category} id={id} />
               </section>
             </div>
           </Container>

@@ -1,5 +1,5 @@
-import { Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
@@ -12,6 +12,11 @@ import Poster from "./pages/poster/poster";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   return (
     <>
@@ -22,7 +27,11 @@ function App() {
           <Route path="movies" element={<Movies />} />
           <Route path="series" element={<Series />} />
           <Route path="about" element={<About />} />
-          <Route path="poster/:id" element={<Poster />} />
+          <Route
+            path="poster/movie/:id"
+            element={<Poster category="movie" />}
+          />
+          <Route path="poster/tv/:id" element={<Poster category="tv" />} />
         </Routes>
       </main>
       <Footer />

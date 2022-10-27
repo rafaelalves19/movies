@@ -4,7 +4,7 @@ import Container from "../container/container";
 
 export default function Card({ movie }) {
   return (
-    <Link to={`poster/${movie.id}`}>
+    <Link to={`poster/movie/${movie.id}`}>
       <div className="card__moviesSlider">
         <div className="card__background">
           <img

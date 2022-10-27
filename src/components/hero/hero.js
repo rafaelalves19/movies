@@ -17,31 +17,26 @@ export default function Hero() {
     )
       .then((response) => response.json())
       .then((data) => {
-        
         setMovies(data.results);
-       /*  setIsLoading(false); */
+        /*  setIsLoading(false); */
       });
   }, []);
 
   return (
     <div className="hero__slide">
       <Swiper
-         autoplay={{
+        autoplay={{
           delay: 5500,
           disableOnInteraction: false,
-        }} 
+        }}
         spaceBetween={0}
         centeredSlides={true}
-        modules={
-          [
-             Autoplay 
-          ]
-        }
+        modules={[Autoplay]}
         className="mySwiper"
       >
         {movies &&
-          movies.map((movie) => (
-            <SwiperSlide>
+          movies.map((movie, key) => (
+            <SwiperSlide key={key}>
               <Card movie={movie} />
             </SwiperSlide>
           ))}
