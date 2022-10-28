@@ -35,6 +35,7 @@ function Poster(props) {
   const [crewInfo, setCrewInfo] = useState([]);
   const [poster, setPoster] = useState([]);
   const crewSlice = crewInfo.slice(0, 8);
+  const castSlice = castCard.slice(0, 10);
 
   const { id } = useParams();
 
@@ -51,7 +52,6 @@ function Poster(props) {
       .then((response) => response.json())
       .then((data) => {
         setPoster(data);
-        console.log(data);
       });
   }, [props.category, id]);
 
@@ -129,10 +129,7 @@ function Poster(props) {
                     clickable: true,
                   }}
                   breakpoints={{
-                    400: {
-                      slidesPerView: 1,
-                    },
-                    440: {
+                    100: {
                       slidesPerView: 2,
                       spaceBetween: 10,
                     },
@@ -152,8 +149,8 @@ function Poster(props) {
                   modules={[Pagination]}
                   className="mySwiper"
                 >
-                  {castCard &&
-                    castCard.map((cast, key) => (
+                  {castSlice &&
+                    castSlice.map((cast, key) => (
                       <SwiperSlide key={key}>
                         <SingleCastCard cast={cast} />
                       </SwiperSlide>
