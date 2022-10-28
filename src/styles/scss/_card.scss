@@ -24,7 +24,7 @@
     position: relative;
 
     @include min-1024 {
-      padding-top: 140px;
+      padding-top: 100px;
       height: 70vh;
     }
 
@@ -74,11 +74,11 @@
       h1 {
         position: relative;
         color: var(--text-color);
-        font-size: 32px;
+        font-size: 24px;
         padding-bottom: 10px;
 
         @include min-1024 {
-          font-size: 46px;
+          font-size: 28px;
           padding-bottom: 20px;
         }
       }

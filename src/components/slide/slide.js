@@ -51,7 +51,6 @@ function Slide({ endpoint, category }) {
       .then((response) => response.json())
       .then((data) => {
         setlatests(data.results);
-        /* setIsLoading(false); */
       });
   }, [endpoint]);
   return (
