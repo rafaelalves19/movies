@@ -6,31 +6,33 @@
   overflow: hidden;
   border-radius: 5px;
   cursor: pointer;
+
   &:hover {
     .slide__cardHover {
-      @include min-1024 {
-        bottom: 0px;
-      }
+      bottom: 0px;
     }
   }
 
   &::after {
-    @include min-1024 {
-      content: "";
-      display: block;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(
-        0deg,
-        rgba(0, 0, 0, 0.5) 0%,
-        rgba(255, 255, 255, 0) 100%
-      );
-      top: 0;
-      left: 0;
-    }
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    top: 0;
+    left: 0;
   }
 
   .slide__cardHover {
+    background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 0) 100%
+    );
     position: absolute;
     bottom: 0px;
     width: 100%;

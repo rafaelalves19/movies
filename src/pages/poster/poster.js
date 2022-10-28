@@ -89,8 +89,13 @@ function Poster(props) {
 
                 <div className="poster__info">
                   <h2>
-                    {poster.title}
-                    <span> &#40;{getYear(poster.release_date)}&#41;</span>
+                    {poster.title || poster.name}
+                    <span>
+                      {" "}
+                      &#40;
+                      {getYear(poster.release_date || poster.first_air_date)}
+                      &#41;
+                    </span>
                   </h2>
                   <p className="poster__average">
                     {/* <-----Circular bar (%) ------>*/}
