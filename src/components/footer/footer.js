@@ -22,12 +22,6 @@ export default function Footer() {
           <li>
             <Link to="/about">About us</Link>
           </li>
-          <li>
-            <Link to="/movies">Movies</Link>
-          </li>
-          <li>
-            <Link to="/series">Series</Link>
-          </li>
         </ul>
         <p>
           Made by <span>Rafael Alves</span>
