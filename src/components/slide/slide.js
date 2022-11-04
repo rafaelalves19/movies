@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper";
+import { Pagination, Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Link } from "react-router-dom";
@@ -58,6 +58,7 @@ function Slide({ endpoint, category }) {
       <Swiper
         slidesPerView={1}
         spaceBetween={10}
+        navigation={true}
         pagination={{
           clickable: true,
         }}
@@ -79,7 +80,7 @@ function Slide({ endpoint, category }) {
             spaceBetween: 50,
           },
         }}
-        modules={[Pagination]}
+        modules={[Pagination, Navigation]}
         className="mySwiper"
       >
         {latests &&

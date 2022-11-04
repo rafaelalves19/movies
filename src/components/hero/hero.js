@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper";
+import { Autoplay, Pagination } from "swiper";
 import Card from "../card/card";
 
 import "swiper/css";
 import "swiper/css/pagination";
-import "swiper/css/navigation";
 
 export default function Hero() {
   const [movies, setMovies] = useState([]);
@@ -31,7 +30,8 @@ export default function Hero() {
         }}
         spaceBetween={0}
         centeredSlides={true}
-        modules={[Autoplay]}
+        pagination={true}
+        modules={[Autoplay, Pagination]}
         className="mySwiper"
       >
         {movies &&
