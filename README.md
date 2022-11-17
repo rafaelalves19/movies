@@ -1,6 +1,6 @@
 # Movie City 🎞️
 
-You can visit [here!]([https://www.example.com](https://moviecityrafael.netlify.app/)) 
+You can visit [here!](https://moviecityrafael.netlify.app/) 
 
 
 ## Available Scripts
